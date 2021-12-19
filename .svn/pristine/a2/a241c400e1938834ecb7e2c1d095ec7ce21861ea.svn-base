@@ -1,0 +1,109 @@
+const { 
+  getEmployeeBasicInfoRequest,
+  getEmployeeTrainingInfoRequest,
+  getEmployeeWorkInfoRequest,
+  getEmployeeIncentiveInfoRequest,
+  getEmployeeTitlesInfoRequest,
+  getEmployeeEducationInfoRequest
+} = require('../../utils/api');
+
+
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    id:'',
+    basicInfo:{},
+    trainingInfo:{},
+    workInfo:[],
+    incentiveInfo:{},
+    titlesInfo:{},
+    educationInfo:[],
+    tabs:["基本信息","履历信息",'学历信息',"培训信息","奖惩信息","职称信息"],
+    tabActiveIndex:0,
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    const { id } = options;
+
+    // 基本信息
+    this.getEmployeeBasicInfo(id);
+    // 履历信息
+    this.getEmployeeWorkInfo(id);
+    // 培训信息
+    this.getEmployeeTrainingInfo(id);
+    // 奖惩信息
+    this.getEmployeeIncentiveInfo(id);
+    // 职称信息
+    this.getEmployeeTitlesInfo(id);
+    // 学历信息
+    this.getEmployeeEducationInfo(id);
+    
+    this.setData({
+      id
+    })
+  },
+  // 请求员工基本详情
+  async getEmployeeBasicInfo(id){
+    wx.showLoading({
+      title:'数据加载中'
+    });
+    const {data} = await getEmployeeBasicInfoRequest(id);
+
+    wx.hideLoading();
+    this.setData({
+      basicInfo:data
+    })
+  },
+    // 请求员工履历信息
+    async getEmployeeWorkInfo(id){
+      const data = await getEmployeeWorkInfoRequest(id);
+      this.setData({
+        workInfo:data
+      })
+    },
+  // 请求员工培训信息
+  async getEmployeeTrainingInfo(id){
+    const data = await getEmployeeTrainingInfoRequest(id);
+
+    this.setData({
+      trainingInfo:data[0] || null
+    })
+  },
+   // 请求奖惩培训信息
+   async getEmployeeIncentiveInfo(id){
+    const data = await getEmployeeIncentiveInfoRequest(id);
+    
+    this.setData({
+      incentiveInfo:data[0] || null
+    })
+  },
+  // 请求职称信息
+  async getEmployeeTitlesInfo(id){
+    const data = await getEmployeeTitlesInfoRequest(id);
+
+    this.setData({
+      titlesInfo:data[0] || null
+    })
+  },
+  async getEmployeeEducationInfo(id){
+    const data = await getEmployeeEducationInfoRequest(id);
+
+    this.setData({
+      educationInfo:data
+    })
+  },
+  // 切换tab索引
+  switchTabIndex(e){
+    const {index} = e.currentTarget.dataset;
+    this.setData({
+      tabActiveIndex:index
+    })
+  }
+})

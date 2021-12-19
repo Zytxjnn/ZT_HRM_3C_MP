@@ -1,0 +1,186 @@
+<wxs module="utils" src="../../utils/util.wxs"></wxs>
+<!-- 头部信息 -->
+<view class="header">
+  <view class="left">
+    <view class="name">{{basicInfo.name}} {{basicInfo.age}}岁</view>
+    <view class="descrition">  {{basicInfo.jobsName}}·{{ basicInfo.firstEducationName || basicInfo.educationName || '学历不详'}}
+    </view>
+    <view class="unit">{{basicInfo.departmentName}}</view>
+  </view>
+  <view class="right">
+    <image class="image" src="{{basicInfo.photoFilePath || '../../resouces/imgs/profile_photo_placeholder.png'}}" ></image>
+  </view>
+</view>
+
+<!-- 选项卡 -->
+ <view class="tabs-wrapper">
+  <view class="tabs">
+    <view 
+      data-index="{{index}}"
+      bindtap="switchTabIndex"
+      class="tab {{index === tabActiveIndex ? 'active' : ''}}" wx:for="{{tabs}}">
+      {{item}}
+    </view>
+  </view>
+ </view>
+
+
+<!-- 基本信息 -->
+<view class="tab-view" wx:if="{{tabActiveIndex === 0}}">
+  <view class="info-list">
+    <view class="info-item">
+      <text class="key">员工编码</text>
+      <text class="value">{{basicInfo.code}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">性别</text>
+      <text class="value">{{basicInfo.gender}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">民族</text>
+      <text class="value">{{basicInfo.nationality}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">籍贯</text>
+      <text class="value">{{basicInfo.birthplace || '不详'}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">户口所在地</text>
+      <text class="value">{{basicInfo.householdAddress}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">出生日期</text>
+      <text class="value">{{utils.onlyShowDate(basicInfo.dateOfBirth)}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">进入中铁系统时间</text>
+      <text class="value">{{utils.onlyShowDate(basicInfo.intoSystemDate)}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">档案管理单位</text>
+      <text class="value">{{basicInfo.archivesManager || '不详'}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">最高学历</text>
+      <text class="value">{{basicInfo.firstEducationName || basicInfo.educationName || '不详'}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">毕业专业</text>
+      <text class="value">{{basicInfo.topGraduationMajor || '不详'}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">所在单位</text>
+      <text class="value">{{basicInfo.departmentName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">联系电话</text>
+      <text class="value">{{basicInfo.mobliePhone || '不详'}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">岗位</text>
+      <text class="value">{{basicInfo.jobsName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">二级机构</text>
+      <text class="value">{{basicInfo.secondaryInstitutionsName || '不详'}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">岗位状态</text>
+      <text class="value">{{basicInfo.jobStatusName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">社保身份</text>
+      <text class="value">{{basicInfo.categoryOfPersonnelName || '不详'}}</text>
+    </view>
+    <view class="info-item">
+      <text class="key">进入来源</text>
+      <text class="value">{{basicInfo.sourcesOfPersonnelName}}</text>
+    </view>
+  </view>
+</view>
+
+
+
+
+<!-- 履历信息 -->
+<view class="tab-view" wx:if="{{tabActiveIndex === 1}}">
+  <view class="work-info" wx:for="{{workInfo}}">
+    <view class="title">{{item.companyName}}</view>
+    <view class="list">
+      <view class="info-item">
+        <text class="key">起止时间</text>
+        <text class="value">{{utils.onlyShowDate(item.startDate)}} 至 {{utils.onlyShowDate(item.endDate)}}</text>
+     </view>
+
+      <view class="info-item">
+        <text class="key">部门</text>
+        <text class="value">{{item.postName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="key">从事工作</text>
+        <text class="value">{{item.engagedInWorkName || '不详'}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 学历信息 -->
+<view class="tab-view" wx:if="{{tabActiveIndex === 2}}">
+  <view class="work-info" wx:for="{{educationInfo}}" wx:if="{{educationInfo.length}}">
+    <view class="title">{{item.school}}</view>
+    <view class="list">
+      <view class="info-item">
+        <text class="key">起止时间</text>
+        <text class="value">{{item.startDateYear}}年{{item.startDateMonth}}月 - {{item.endDateYear}}年{{item.endDateMonth}}月</text>
+     </view>
+      <view class="info-item">
+        <text class="key">学历</text>
+        <text class="value">{{item.educationName || '不详'}} </text>
+      </view>
+      <view class="info-item">
+        <text class="key">所学专业</text>
+        <text class="value">{{item.professional || '不详'}}</text>
+      </view>
+      <view class="info-item">
+        <text class="key">详细描述</text>
+        <text class="value">{{item.descriptio || '暂无'}}</text>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!educationInfo.length}}" class="nodata">
+    暂无学历信息
+  </view>
+</view>
+
+<view class="tab-view" wx:if="{{tabActiveIndex === 3}}">
+  <view wx:if="{{!trainingInfo}}" class="nodata">
+    暂无培训信息
+  </view>
+</view>
+
+<view class="tab-view" wx:if="{{tabActiveIndex === 4}}">
+  <view wx:if="{{!trainingInfo}}" class="nodata">
+    暂无奖惩信息
+  </view>
+</view>
+
+<view class="tab-view" wx:if="{{tabActiveIndex === 5}}">
+  <view wx:if="{{!trainingInfo}}" class="nodata">
+    暂无职称信息
+  </view>
+</view>
+
+<view class="tab-view" wx:if="{{tabActiveIndex === 6}}">
+  <view class="file-list">
+    <view class="file-item" wx:for="{{archivesList}}" bindtap="handleFilePreview" data-type="{{item.fileType}}" data-path="{{item.lagerFilePath}}"  data-isImage="{{item.isImage}}" data-isView="{{item.isView}}">
+        <view class="file-cover">
+          <image src="../../resouces/imgs/wordCoverImage.png" wx:if="{{item.fileType === 'doc' || item.fileType === 'docx'}}"></image>
+          <image src="{{item.smallFilePath}}" wx:if="{{item.isImage}}"></image>
+        </view>
+
+        <view class="file-name">
+          {{item.name}}
+        </view>
+    </view>
+  </view>
+</view>

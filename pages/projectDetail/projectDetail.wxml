@@ -1,0 +1,43 @@
+<view class="project-info">
+   <view class="name">
+    {{projectName}}（共计{{total}}人）
+   </view>
+   <view class="tags" wx:if="{{projectType != null && projectStatus!= null}}">
+       <view class="content">
+            <view class="type" wx:if="{{projectType != null}}">
+                {{projectType}}
+            </view>
+            <view class="status" wx:if="{{projectStatus != null }}">
+                {{projectStatus}}
+            </view>
+       </view>
+   </view>
+</view>
+
+<view class="wrapper" wx:if="{{list.length !== 0}}"  style="height:calc(100vh - {{projectInfoHeight}}px)">
+    <scroll-view class="left" scroll-y="{{true}}">
+        <view class="department-list">
+            <view class="department-list-item {{index === activeIndex ? 'active' : ''}}" 
+            wx:for="{{list}}"
+            data-index="{{index}}"
+            bindtap="changeActiveDepartmentId"
+            >
+                {{item.name || '默认'}}
+            </view>
+        </view>
+    </scroll-view>
+    <scroll-view  class="right" scroll-y="{{true}}">
+        <view class="nodata" wx:if="{{list[activeIndex].length === 0}}">
+            <icon class="iconfont icon-zanwushuju"></icon>
+            <view>暂无数据</view>
+        </view>
+        <block wx:if="{{list[activeIndex].infoList.length >  0}}">
+            <employee-card  wx:for="{{list[activeIndex].infoList}}" employee="{{item}}"></employee-card>
+        </block>
+    </scroll-view >
+</view>
+
+<view class="noSecondaryInstitutionsList" wx:if="{{list.length === 0 && isInitLoading === false}}">
+    <icon class="iconfont icon-zanwushuju"></icon>
+    <view>暂无数据</view>
+</view>

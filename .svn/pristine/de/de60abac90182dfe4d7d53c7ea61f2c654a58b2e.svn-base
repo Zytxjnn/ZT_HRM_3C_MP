@@ -1,0 +1,107 @@
+const { getEmployeeInfoListBySearch } = require('../../utils/api');
+
+Page({
+  data: {
+    history:[],
+    searchKey:'',
+    result:[],
+  },
+  onLoad: function (options) {
+  },
+  onShow(){
+    const searchKey = this.data.searchKey;
+    this.getHistoryRecords();
+    
+   searchKey && this.getSearchResult(searchKey);
+  },
+  // 获取历史搜索记录
+  getHistoryRecords(){
+    const list = wx.getStorageSync('historySearchRecords');
+    console.log(list);
+    if(list){
+      this.setData({
+        history:list
+      })
+    }
+  },
+  searchContentInput(e){
+      const {value} = e.detail;
+
+      if(value){
+        this.setData({
+          searchKey:value
+        })
+        
+        this.getSearchResult(value);
+      }
+      
+     
+      
+  },
+  // 获取搜索结果
+  async getSearchResult(value){
+    const {list:data} = await getEmployeeInfoListBySearch(1,10,value);
+
+    this.setData({
+      result:data
+    })
+  },
+  
+  // 进入 员工详情 页面
+  intoEmployeeDetail(e){
+    const {id} = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/employeeDetail/employeeDetail?id=${id}`
+    })
+  },
+  selectHistory(e){
+      const {name} = e.currentTarget.dataset;
+      wx.navigateTo({
+        url: `/pages/employeeList/employeeList?keyword=${name}`
+      })
+  },
+  search(){
+    const searchKey = this.data.searchKey;
+    if(!searchKey.trim()){
+      return false;
+    }
+    this.recordSearchValue(searchKey);
+    wx.navigateTo({
+      url: `/pages/employeeList/employeeList?keyword=${searchKey}`
+    })
+  },
+  // 点击搜索后，页面和本地保存搜索关键字
+  recordSearchValue(searchKey){
+    const list = this.data.history;
+
+    // 存在重复关键字
+    if(list.indexOf(searchKey) !== -1){
+      return false;
+    }
+
+    list.push(searchKey);
+    this.setData({
+      history:list
+    })
+    wx.setStorageSync('historySearchRecords', list)
+  },
+  // 清空搜索历史
+  emptyHistoryRecords(){
+    if(!this.data.history.length){
+      return false;
+    }
+
+    const _self = this;
+    wx.showModal({
+      content:"确认删除全部历史记录？",
+      success(res){
+        if(res.confirm){
+          wx.removeStorageSync('historySearchRecords');
+          _self.setData({
+            history:[]
+          })
+        }
+      }
+    })
+  }
+})

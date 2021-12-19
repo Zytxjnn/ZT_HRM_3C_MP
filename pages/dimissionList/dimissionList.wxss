@@ -1,0 +1,77 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20rpx;
+}
+
+.time-period{
+    display: flex;
+    align-items: center;
+}
+
+.l-placeholder-class{
+    font-size: 60rpx;
+}
+
+
+.time-period-item{
+    padding: 8rpx 20rpx;
+    border-radius: 20rpx;
+}
+
+.time-period-item.active{
+    color: #fff;
+    background-color: #3963bc;
+}
+
+.time-period .iconfont{
+    position: relative;
+    top: 2rpx;
+    font-size: 50rpx;
+}
+
+.employee-list{
+    height: 90vh;
+}
+
+.time{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 20rpx 30rpx;
+}
+
+.time-range{
+    display: flex;
+    margin-top: 20rpx;
+}
+
+ .time-range-item{
+    color: #3963bc;
+}
+
+.time-range-item.start{
+    margin-right: 20rpx;
+}
+.time-range-item.end{
+    margin-left: 20rpx;
+}
+
+
+.sift-wrapper{
+    position: relative;
+    background-color: #fff;
+    height: 900rpx;
+    border-radius: 40rpx 40rpx 0 0;
+    padding: 20rpx;
+  }
+
+.property{
+    margin-bottom: 40rpx;
+}
+
+.property .title{
+    font-size: 40rpx;
+    margin-bottom: 20rpx;
+}

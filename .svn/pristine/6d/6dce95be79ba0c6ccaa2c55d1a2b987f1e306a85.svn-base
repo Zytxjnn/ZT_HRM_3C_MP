@@ -1,0 +1,95 @@
+const { request } = require('./util');
+
+
+// 登录
+const login = (account,password) => {
+  return request('Account/Login',{
+    method:'post',
+    data:{
+      account,password
+    }
+  })
+}
+
+// 获取员工列表
+const getEmployeeInfoList = (currentPage,pageSize,key = '') => {
+  return request('EmployeeInfo/GetPageList',{
+    method:'post',
+    data:{
+      currentPage,
+      pageSize,
+      sortField:'name',
+      sortDirection:'asc',
+      key
+    }
+  })
+}
+
+// 获取员工列表
+const getEmployeeInfoListBySearch = (currentPage,pageSize,key = '') => {
+  return request('EmployeeInfo/GetPageList',{
+    method:'post',
+    data:{
+      currentPage,
+      pageSize,
+      sortField:'name',
+      sortDirection:'desc',
+      key
+    }
+  })
+}
+
+// 获取单个员工基本信息
+const getEmployeeBasicInfoRequest = (id) => {
+  return request(`EmployeeInfo/Get?id=${id}`,{
+    method:'get'
+  })
+}
+
+// 获取单个员工培训信息
+const getEmployeeTrainingInfoRequest = (id) => {
+  return request(`TrainingInfo/GetList?id=${id}`,{
+    method:'get'
+  })
+}
+
+// 获取单个员工履历信息
+const getEmployeeWorkInfoRequest = (id) => {
+  return request(`WorkInfo/GetList?employeeId=${id}`,{
+    method:'get'
+  })
+}
+
+// 获取员工奖惩信息
+const getEmployeeIncentiveInfoRequest = id => {
+  return request(`IncentiveInfo/GetList?employeeId=${id}`,{
+    method:'get'
+  })
+}
+
+// 获取员工职称信息
+const getEmployeeTitlesInfoRequest = id => {
+  return request(`TitlesInfo/Get?employeeId=${id}`,{
+    method:'get'
+  })
+}
+
+// 获取员工学历信息
+const getEmployeeEducationInfoRequest = id => {
+  return request(`EducationInfo/GetList?employeeId=${id}`,{
+    method:'get'
+  })
+}
+
+
+module.exports = {
+  login,
+  getEmployeeInfoList,
+  getEmployeeInfoListBySearch,
+  getEmployeeBasicInfoRequest,
+  getEmployeeTrainingInfoRequest,
+  getEmployeeWorkInfoRequest,
+  getEmployeeIncentiveInfoRequest,
+  getEmployeeTitlesInfoRequest,
+  getEmployeeEducationInfoRequest
+}

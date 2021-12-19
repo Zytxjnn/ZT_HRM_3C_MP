@@ -1,0 +1,19 @@
+.logout-btn{
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+  box-sizing: border-box;
+  background-color: #409EFF;
+  color:#fff;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin: 40rpx;
+  border-radius: 40rpx;
+  text-align: center;
+}
+
+.header .username{
+  font-size: 50rpx;
+  padding: 40rpx;
+  text-align: center;
+}

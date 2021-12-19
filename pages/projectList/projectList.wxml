@@ -1,0 +1,28 @@
+<l-search-bar placeholder="搜索" 
+    bg-color="#f6f6f6" shape="circle" show-cancel="{{false}}" 
+    bind:linchange="handleInputSearch"
+    bind:linclear="handleInputClear"
+      />
+<view class="total">
+    共 {{total}} 个项目
+</view>
+
+<scroll-view class="project-list-wrapper" 
+lower-threshold="100"
+scroll-y="{{true}}" bindscrolltolower="projectListScrolltoLower">
+    <view class="project-item" 
+    wx:for="{{searchValue ? searchedList : list}}"
+    data-id="{{item.id}}"
+    data-name="{{item.name}}"
+    data-desc="{{item.description}}"
+    data-status="{{projectStatusName}}"
+    data-type="{{projectTypeName}}"
+    bindtap="dumpToProjectList"
+    >
+        <view class="name">{{item.name}}</view>
+        <view class="desc">{{item.description}}</view>
+    </view>
+    <l-loadmore show="{{isEnd ||  isLoading }}" type="{{isEnd ? 'end' : 'loading'}}" end-text="我是有底线的" line="{{true}}"></l-loadmore>
+</scroll-view>
+
+

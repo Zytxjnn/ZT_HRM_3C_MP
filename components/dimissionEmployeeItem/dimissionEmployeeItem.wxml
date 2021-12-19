@@ -1,0 +1,16 @@
+<view class="employee"   data-id="{{info.employeeId}}" bindtap="intoEmployeeDetail" >
+    <view class="image">
+      <image class="image" src="{{info.photoFilePath || '../../resouces/imgs/profile_photo_placeholder.png'}}" binderror="headImgLoadError"></image>
+    </view>
+    <view class="content">
+      <view class="name">
+        <text>{{info.name}} {{info.gender}}</text>
+        <text>{{info.age}} 岁</text>
+       </view>
+      <view class="project">
+        项目：{{info.departmentName}}
+      </view>
+      
+      <view class="reason">原因：{{info.logMemo}}</view>
+    </view>
+  </view>

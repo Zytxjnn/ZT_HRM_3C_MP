@@ -1,0 +1,8 @@
+function onlyShowDate(string){
+
+  return string ? string.slice(0,10) : '暂无';
+}
+
+module.exports = {
+  onlyShowDate:onlyShowDate
+}

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "减员列表",
+  "usingComponents": {
+    "l-search-bar":"/miniprogram_npm/lin-ui/search-bar",
+    "l-button":"/miniprogram_npm/lin-ui/button",
+    "l-loadmore":"/miniprogram_npm/lin-ui/loadmore",
+    "dimission-employee-item":"/components/dimissionEmployeeItem/dimissionEmployeeItem",
+    "l-popup":"/miniprogram_npm/lin-ui/popup/index"
+  }
+}

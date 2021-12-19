@@ -1,0 +1,36 @@
+.total{
+    padding:20rpx 40rpx;
+}
+
+.project-list-wrapper{
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    height: 90vh;
+}
+
+.project-item{
+    box-sizing: border-box;
+    padding: 20rpx;
+    margin-bottom: 40rpx;
+    box-sizing: border-box;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    border-radius: 20rpx;
+    width: 98%;
+    margin:10rpx auto 40rpx auto;
+}
+
+.project-item .name{
+    color:#1466E3;
+    font-size: 34rpx;
+}
+
+.project-item .desc{
+    color:#74747D;
+    font-size: 30rpx;
+    margin-top: 20rpx;
+}
+
+.project-list-wrapper .project-item:last-of-type{
+    margin-bottom: 20rpx;
+}
+

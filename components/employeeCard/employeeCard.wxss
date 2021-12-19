@@ -1,0 +1,82 @@
+.employee{
+    display: flex;
+    justify-content: space-between;
+    padding: 20rpx;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+  }
+  
+
+  
+  .employee .image{
+    width: 200rpx;
+    height: 260rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+  }
+
+  .employee .image image{
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  /* .employee .noimage{
+    position:relative;
+    background-color: #f5f7fa;
+  }
+  
+  .employee .noimage::after{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    content:"暂无图片";
+  } */
+
+  .employee .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20rpx;
+    flex:1;
+    font-size: 28rpx;
+  }
+  
+  .employee .archives-manager{
+    width: 440rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .employee .content view{
+    margin-bottom: 10rpx;
+  }
+  
+  .employee .content .name{
+    display: flex;
+    justify-content:space-between;
+  
+  }
+  
+  .employee .content .name text:first-child{
+    font-size: 36rpx;
+    font-weight: 800;
+  }
+  
+  .employee .content .name text:last-child{
+    font-size: 32rpx;
+  }
+  
+  .employee .secondary-institutions-name{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .employee .secondary-institutions-name text:last-child{
+    font-size: 30rpx;
+    font-weight: 800;
+  }

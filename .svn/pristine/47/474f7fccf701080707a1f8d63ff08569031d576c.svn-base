@@ -1,0 +1,18 @@
+<view class="logo">
+    三处人力资源平台
+  </view>
+<view id="form">
+  <view class="form-item">
+    <view class="form-item-label">
+      账号：
+    </view>
+    <input type="text" placeholder="请输入账号"  model:value="{{account}}" />
+  </view>
+  <view class="form-item">
+    <view class="form-item-label">
+      密码：
+    </view>
+    <input type="password" placeholder="请输入密码"  model:value="{{password}}" />
+  </view>
+  <button class="login-btn" bindtap="login">登录</button>
+</view>

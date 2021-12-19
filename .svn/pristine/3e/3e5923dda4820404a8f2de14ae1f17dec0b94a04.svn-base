@@ -1,0 +1,6 @@
+<view class="func-list">
+  <view class="func" bindtap="intoEmployeeList">
+    <icon class="iconfont icon-renyuanxinxi func-icon"></icon>
+    <text class="name">人员查询</text>
+  </view>
+</view>

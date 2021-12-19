@@ -1,0 +1,96 @@
+const { getEmployeeInfoList } = require('../../utils/api');
+
+Page({
+  data: {
+    isLoading:true,
+    isEnd:false,
+    currentPage:0,
+    pageSize:20,
+    list:[],
+    total:0,
+    keyword:'',
+  },
+  onLoad: function (options) {
+    const keyword = options.keyword
+    if(keyword){
+      this.setData({
+        keyword:keyword
+      })
+    }
+
+    this.getEmployeeList();
+  },
+  // 获取列表
+  getEmployeeList(){
+    // 数据是否已加载完
+    if(this.data.isEnd){
+      wx.showToast({
+        title: '数据已加载完毕',
+        icon:'none'
+      })
+      return;
+    }
+
+    this.setData({
+      isLoading:true
+    })
+    wx.showLoading({
+      title: '加载数据中',
+      mask:true
+    });
+
+    const _self = this;
+    let {currentPage,pageSize,list,keyword} = this.data;
+    
+    getEmployeeInfoList(currentPage + 1,pageSize,keyword).then(res => {
+    
+      if(res.list){ // 加载成功
+        _self.setData({
+          currentPage:currentPage+1,
+          list:list.concat(res.list),
+          total:res.total
+        })
+      }else{  // 加载失败
+        _self.setData({
+          isEnd:true,
+        })
+
+      }
+
+      _self.setData({
+        isLoading:false
+      })
+      wx.hideLoading();
+     
+    })
+  },
+  // 页面触底，加载数据
+  onReachBottom(){
+    this.getEmployeeList();
+  },
+  // 进入 员工详情 页面
+  intoEmployeeDetail(e){
+      const {id} = e.currentTarget.dataset;
+      wx.navigateTo({
+        url: `/pages/employeeDetail/employeeDetail?id=${id}`
+      })
+  },
+  intoSearchEmployee(){
+    wx.navigateTo({
+      url: `/pages/search/search`
+    })
+  },
+  headImgLoadError(e){
+    const index = Number(e.currentTarget.dataset.index);
+    
+    const list = this.data.list;
+    list[index].photoFilePath = '../../resouces/imgs/profile_photo_placeholder.png';
+    this.setData({
+      list
+    })
+  },
+  // 弹出筛选框
+  openSiftBox(){
+    
+  }
+})

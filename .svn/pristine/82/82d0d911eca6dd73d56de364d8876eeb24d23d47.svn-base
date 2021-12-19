@@ -1,0 +1,20 @@
+
+Page({
+  data: {
+ 
+  },
+  onShow: function (options) {
+    const token = wx.getStorageSync('token');
+
+    if(!token){
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+    }
+  },
+  intoEmployeeList(){
+    wx.navigateTo({
+      url: '/pages/employeeList/employeeList',
+    })
+  },
+})

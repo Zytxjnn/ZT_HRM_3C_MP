@@ -1,0 +1,13 @@
+<view class="func-list">
+  <view class="func-item" wx:for="{{list}}">
+    <view class="func" bindtap="dump" data-mode="{{0}}" data-path="{{item.path}}">
+      <icon class="iconfont {{item.icon}} func-icon"></icon>
+      <text class="name">三处{{item.name}}</text>
+    </view>
+    <view class="func" bindtap="dump" data-mode="{{1}}" data-path="{{item.path}}">
+        <icon class="iconfont {{item.icon}} func-icon"></icon>
+        <text class="name">天诚{{item.name}}</text>
+    </view>
+  </view>
+
+</view>

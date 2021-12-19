@@ -1,0 +1,112 @@
+<navigation title="员工列表" backPath="{{keyword ? '/pages/search/search' : '/pages/index/index'}}"> 
+</navigation>
+<view class="search" style="margin-top: {{navBarHeight}}px;">
+  <view class="search-content">
+    <view class="search-input-wrap" bindtap="intoSearchEmployee">
+      <icon class="iconfont icon-sousuo"></icon>
+      <input type="text" disabled placeholder="{{keyword ? keyword : '搜索'}}" />
+    </view>
+  </view>
+  <view class="bottom">
+    <view class="total">共计 <text class="count">{{total}}</text> 名员工</view>
+    <view class="sift-btn" bindtap="openSiftBox">
+      筛选
+      <icon class="iconfont icon-shaixuan" ></icon>
+    </view>
+  </view>
+</view>
+
+<view class="nodata" wx:if="{{list.length === 0 && !isLoading}}">
+  暂无符合条件的员工
+</view>
+<scroll-view class="employee-list" wx:if="{{list.length !== 0}}" scroll-top="{{employeeListTopNum}}" scroll-y   
+
+lower-threshold="{{100}}"
+bindscroll="scrolltoupper" bindscrolltolower="bindscrolltolower">
+  <view class="employee"  wx:for="{{list}}" data-id="{{item.id}}" bindtap="intoEmployeeDetail" >
+    <view class="image">
+      <image class="image" src="{{item.photoFilePath}}" binderror="headImgLoadError" data-index="{{index}}"></image>
+    </view>
+    <view class="content">
+      <view class="name">
+        <text>{{item.name}} {{item.gender}}</text>
+        <text>{{item.age}} 岁</text>
+       </view>
+       <view class="first-education-name">学历：{{item.educationName || item.firstEducationName || '不详'}}</view>
+      <view class="jobs-name">岗位：{{item.jobsName || '不详'}}</view>
+      <view class="archives-manager">机构：{{item.departmentName || '不详'}}</view>
+      <view class="secondary-institutions-name">二级机构：{{item.secondaryInstitutionsName || '不详'}}
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+
+
+<!-- 底部popup -->
+<l-popup show="{{bottomPopupShow}}" content-align="bottom"  animation="hide"> 
+  <view class="sift-wrapper">
+    <view class="header">筛选</view>
+    <view class="content">
+      <l-form name="siftInfo" bindLinsubmit="submit">
+        <l-form-item label="员工姓名 :" name="studentName" label-width="{{labelWidth}}"  align-items="{{labelPos}}" >
+            <l-input id="employeeName" value="{{siftInfo.name}}" data-key="name" hide-label show-row="{{false}}" clear="{{true}}"
+            bind:linclear="popupSearchNameClear"
+            placeholder="请输入"
+            placeholder-style="font-size:32rpx;color:#777;"
+            bind:lininput="handleInputChage"/>
+        </l-form-item>
+        <l-form-item label="机构 :" name="department"  data-index="{{0}}" 
+        label-width="{{labelWidth}}"
+        align-items="{{labelPos}}"
+        bindtap="openRightPopup">
+           <view class="sift-item-text {{siftInfo.department.name ? 'hasValue' : ''}}">{{siftInfo.department.name || '请选择'}}</view>
+        </l-form-item>
+        <l-form-item label="二级机构 :" name="secondaryInstitutions" data-index="{{4}}" 
+         label-width="{{labelWidth}}" 
+         align-items="{{labelPos}}"
+         bindtap="openRightPopup">
+          <view class="sift-item-text {{siftInfo.secondaryInstitutions.name ? 'hasValue' : ''}}" >{{siftInfo.secondaryInstitutions.name || '请选择'}}</view>
+        </l-form-item>
+        <l-form-item label="从事工作 :" name="engagedInWork"  data-index="{{1}}" 
+         label-width="{{labelWidth}}" 
+         align-items="{{labelPos}}"
+         bindtap="openRightPopup">
+           <view class="sift-item-text {{siftInfo.engagedInWork.name ? 'hasValue' : ''}}">{{siftInfo.engagedInWork.name || '请选择'}}</view>
+        </l-form-item>
+        <l-form-item label="岗位 :" name="jobs"  data-index="{{2}}" 
+         label-width="{{labelWidth}}" 
+         align-items="{{labelPos}}"
+         bindtap="openRightPopup">
+           <view class="sift-item-text {{siftInfo.jobs.name ? 'hasValue' : ''}}">{{ siftInfo.jobs.name || '请选择'}}</view>
+        </l-form-item>
+        <l-form-item label="专业技术职位 :" name="professional"  data-index="{{3}}" 
+         label-width="{{labelWidth}}" 
+         align-items="{{labelPos}}"
+         bindtap="openRightPopup">
+           <view class="sift-item-text {{siftInfo.professional.name ? 'hasValue' : ''}}">{{siftInfo.professional.name || '请选择'}}</view>
+        </l-form-item>
+        <view class="options">
+          <view slot="submit">
+            <l-button bindtap="submit">提 交</l-button>
+          </view>
+          <view slot="reset">
+            <l-button type="default" plain bindtap="resetSiftInfo">重 置</l-button>
+          </view>
+        </view>
+      </l-form>
+    </view>
+  </view>
+</l-popup>
+
+<l-popup show="{{rightPopupShow}}" content-align="right"  animation="hide">
+  <view class="popup-list-wrapper" >
+    <l-search-bar placeholder="搜索"  bind:linconfirm="rightPopupSearchConfirm" bind:linclear="rightPopupSearchClear" />
+    <scroll-view class="popup-list" scroll-y="{{true}}">
+      <view class="popup-list-item" 
+      wx:for="{{showSiftContentList[popupActiveIndex]}}"
+      bindtap="rightPopupItemTap"
+      data-index="{{index}}">{{item.name}}</view>
+    </scroll-view>
+  </view>
+</l-popup>

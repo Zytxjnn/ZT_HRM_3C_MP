@@ -1,0 +1,54 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "减员列表",
+                    "pathName": "pages/dimissionList/dimissionList",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "projectList",
+                    "pathName": "pages/projectList/projectList",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/projectDetail/projectDetail",
+                    "pathName": "pages/projectDetail/projectDetail",
+                    "query": "id=1241fe2a-0ada-41ab-bfa0-ffd50a210054",
+                    "scene": null
+                },
+                {
+                    "name": "pages/projectDetail/projectDetail",
+                    "pathName": "pages/projectDetail/projectDetail",
+                    "query": "id=2f70559b-cb30-4e12-9b53-ab3701211ff7&name=信息化公司",
+                    "scene": null
+                },
+                {
+                    "name": "pages/employeeList/employeeList",
+                    "pathName": "pages/employeeList/employeeList",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/employeeDetail/employeeDetail",
+                    "pathName": "pages/employeeDetail/employeeDetail",
+                    "query": "id=09cb38ec-6af5-478f-90fe-9ffd10002278",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

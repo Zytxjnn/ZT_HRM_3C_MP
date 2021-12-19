@@ -1,0 +1,222 @@
+.search{
+  z-index: 999;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx 0 20rpx;
+  background-color: #fff;
+  border-bottom:1px solid #ccc;
+  z-index: 100;
+}
+
+.search-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-input-wrap{
+  display: flex;
+  height: 60rpx;
+  flex:1;
+  background-color: #f6f6f6;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.search-input-wrap .iconfont{
+  font-size: 40rpx;
+  position: relative;
+  top: 0rpx;
+  padding:0 20rpx;
+}
+
+.search-input-wrap input{
+  width: 100%;
+  height: 100%;
+}
+
+.search-btn{
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 10rpx;
+  color:#fff;
+  text-align: center;
+  background-color: #409EFF;
+  margin-left: 20rpx;
+}
+
+.search .bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search .bottom .total{
+  padding: 16rpx 0;
+}
+
+.search .bottom .total .count{
+  font-weight: 800;
+}
+
+.employee-list{
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  height: 79vh;
+  border: 20px;
+}
+
+.nodata{
+  padding: 20rpx;
+}
+
+
+.employee{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  width: 95%;
+  margin:0 auto;
+  box-sizing: border-box;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  margin-bottom: 30rpx;
+  border-radius: 20rpx;
+}
+
+.employee .image{
+  width: 200rpx;
+  height: 260rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+
+
+/* .employee .noimage{
+  position:relative;
+  background-color: #f5f7fa;
+}
+
+.employee .noimage::after{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  text-align: center;
+  transform: translate(-50%,-50%);
+  content:"暂无图片";
+} */
+
+.employee .image image{
+  width: 100%;
+  height: 100%;
+}
+
+.employee .content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20rpx;
+  flex:1;
+  font-size: 28rpx;
+}
+
+.employee .archives-manager{
+  width: 440rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.employee .content .name{
+  display: flex;
+  justify-content:space-between;
+
+}
+
+.employee .content .name text:first-child{
+  font-size: 36rpx;
+  font-weight: 800;
+}
+
+.employee .content .name text:last-child{
+  font-size: 32rpx;
+}
+
+.employee .secondary-institutions-name{
+  display: flex;
+  justify-content: space-between;
+}
+
+.employee .secondary-institutions-name text:last-child{
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.sift-wrapper{
+  position: relative;
+  background-color: #fff;
+  height: 900rpx;
+  border-radius: 40rpx 40rpx 0 0;
+  padding: 20rpx;
+}
+
+.sift-wrapper .header{
+  text-align: center;
+}
+
+.sift-wrapper .content{
+  margin-top: 80rpx;
+}
+
+
+.sift-wrapper .options{
+  width: 60%;
+  position: absolute;
+  left: 50%;
+  bottom: 60rpx;
+  transform: translate(-50%,0);
+  display: flex;
+  justify-content: space-around;
+}
+
+.popup-list-wrapper{
+  background-color: #fff;
+  height: 100vh;
+  width: 70vw;
+  padding-top: 40rpx;
+}
+
+.popup-list{
+  height: 87vh;
+  overflow-y: scroll;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+}
+
+.popup-list .popup-list-item{
+  padding: 20rpx 0;
+}
+
+.sift-item-text{
+  margin-left: 24rpx;
+  width: 400rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+  font-size: 32rpx;
+}
+
+.sift-item-text.hasValue{
+  color:#3963bc;
+}
+
+.pls-class{
+  color:#f00;
+}
+
+.sift-wrapper input{
+  color:#3963bc;
+}

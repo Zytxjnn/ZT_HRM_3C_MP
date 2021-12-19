@@ -1,0 +1,146 @@
+.search{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx 0 20rpx;
+  background-color: #fff;
+  border-bottom:1px solid #ccc;
+  z-index: 100;
+}
+
+.search-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-input-wrap{
+  display: flex;
+  height: 70rpx;
+  flex:1;
+  background-color: #eee;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.search-input-wrap .iconfont{
+  font-size: 40rpx;
+  position: relative;
+  top: 4rpx;
+  padding:0 20rpx;
+}
+
+.search-input-wrap input{
+  width: 100%;
+  height: 100%;
+}
+
+.search-btn{
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 10rpx;
+  color:#fff;
+  text-align: center;
+  background-color: #409EFF;
+  margin-left: 20rpx;
+}
+
+.search .bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search .bottom .total{
+  padding: 16rpx 0;
+}
+
+.search .bottom .total .count{
+  font-weight: 800;
+}
+
+.employee-list{
+  padding: 20rpx;
+  margin-top: 170rpx;
+}
+
+.nodata{
+  margin-top: 200rpx;
+  padding: 20rpx;
+}
+
+.employee{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+
+.employee .image{
+  width: 200rpx;
+  height: 260rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+/* .employee .noimage{
+  position:relative;
+  background-color: #f5f7fa;
+}
+
+.employee .noimage::after{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  text-align: center;
+  transform: translate(-50%,-50%);
+  content:"暂无图片";
+} */
+
+.employee .image image{
+  width: 100%;
+  height: 100%;
+}
+
+.employee .content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20rpx;
+  flex:1;
+  font-size: 28rpx;
+}
+
+.employee .content .name{
+  display: flex;
+  justify-content:space-between;
+
+}
+
+.employee .content .name text:first-child{
+  font-size: 36rpx;
+  font-weight: 800;
+}
+
+.employee .content .name text:last-child{
+  font-size: 32rpx;
+}
+
+.employee .secondary-institutions-name{
+  display: flex;
+  justify-content: space-between;
+}
+
+.employee .secondary-institutions-name text:last-child{
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+
+

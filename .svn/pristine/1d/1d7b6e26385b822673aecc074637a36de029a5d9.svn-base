@@ -1,0 +1,16 @@
+{
+  "id": "2939263",
+  "name": "三处人力资源管理小程序iconfont",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7318945",
+      "name": "人员查询",
+      "font_class": "renyuanxinxi",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    }
+  ]
+}

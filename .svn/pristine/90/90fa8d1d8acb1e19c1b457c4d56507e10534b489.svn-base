@@ -1,0 +1,32 @@
+#form{
+  padding:0  40rpx;
+  margin-top: 100rpx;
+}
+
+.logo{
+  font-size: 60rpx;
+  text-align: center;
+  margin-top: 200rpx;
+}
+
+#form input{
+  flex:1;
+}
+
+.form-item{
+  display:flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom:1px solid #999;
+  margin-top: 10px;
+}
+
+
+.login-btn{
+  margin-top: 100rpx;
+  background-color: #409EFF;
+  color:#fff;
+  font-weight: normal;
+}
+
+

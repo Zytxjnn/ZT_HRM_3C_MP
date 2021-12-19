@@ -1,0 +1,66 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/employeeList/employeeList",
+          "pathName": "pages/employeeList/employeeList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/employeeDetail/employeeDetail",
+          "pathName": "pages/employeeDetail/employeeDetail",
+          "query": "id=391e7946-93ef-4f3d-98d4-ad8100a23e16",
+          "scene": null
+        },
+        {
+          "name": "pages/search/search",
+          "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/employeeDetail/employeeDetail",
+          "pathName": "pages/employeeDetail/employeeDetail",
+          "query": "id=2398692a-0cf2-4ba1-8ad3-ab9f00a69a1c",
+          "scene": null
+        },
+        {
+          "name": "pages/profile/profile",
+          "pathName": "pages/profile/profile",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/employeeList/employeeList",
+          "pathName": "pages/employeeList/employeeList",
+          "query": "keyword=aaa",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/employeeList/employeeList",
+          "pathName": "pages/employeeList/employeeList",
+          "query": "keyword=曹淑真",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.wrapper{
+    display: flex;
+    
+}
+
+.project-info{
+    position: sticky;
+    top: 0;
+   
+    background-color: #fff;
+    padding:0 40rpx 20rpx 40rpx;
+    border-bottom: 1px solid #ccc;
+}
+
+.project-info .name{
+}
+
+.project-info .content{
+    width: auto;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 20rpx;
+}
+
+
+.project-info .content view{
+    background-color: #3384d7;
+    color:#fff;
+    padding: 5rpx 10rpx;
+    margin-right: 20rpx;
+    font-size: 30rpx;
+}
+
+
+
+
+.wrapper .left{
+    flex:1;
+    border-right:1px solid #ccc;
+    height: inherit;
+    padding-top: 20rpx;
+    box-sizing: border-box;
+}
+
+.wrapper .right{
+    width: 70vw;
+    height: inherit;
+    padding-top: 20rpx;
+    box-sizing: border-box;
+}
+
+.department-list .department-list-item{
+    padding: 10rpx 10rpx 10rpx 20rpx;
+}
+
+.department-list .department-list-item.active{
+    color:#1466E3;
+}
+
+.nodata{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 40rpx;
+}
+
+.nodata .iconfont{
+    font-size: 100%;
+    margin-right: 10rpx;
+}
+
+.noSecondaryInstitutionsList{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 40rpx;
+}
+
+.noSecondaryInstitutionsList .iconfont{
+    font-size: 100%;
+}

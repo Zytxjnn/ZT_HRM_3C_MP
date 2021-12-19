@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "项目列表",
+  "usingComponents": {
+    "l-search-bar":"/miniprogram_npm/lin-ui/search-bar",
+    "l-loadmore":"/miniprogram_npm/lin-ui/loadmore"
+  }
+}

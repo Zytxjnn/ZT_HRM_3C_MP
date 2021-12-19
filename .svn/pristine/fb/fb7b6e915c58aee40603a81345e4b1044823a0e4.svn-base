@@ -1,0 +1,44 @@
+<navigation title="员工列表" backPath="{{'/pages/employeeList/employeeList'}}"> 
+</navigation>
+<view class="search"  style="margin-top: {{navBarHeight + 10}}px;">
+  <view class="search-content">
+    <view class="search-input-wrap">
+      <icon class="iconfont icon-sousuo"></icon>
+      <input type="text" placeholder="请输入" bindinput="searchContentInput" value="{{searchKey}}" focus="{{true}}" />
+    </view>
+    <!-- <view class="select-type" bindtap="chooseSearchType">
+      搜关键词
+      <icon class="iconfont icon-xiajiantou"></icon>
+    </view> -->
+    <view class="select-type">
+      <picker bindchange="chooseSearchType" range-key="name" range="{{searchTypes}}">
+        <view class="picker">
+          搜{{searchTypes[searchTypeIndex].name}}
+          <icon class="iconfont icon-xiajiantou"></icon>
+        </view>
+      </picker>
+    </view>
+    <view class="search-btn" bindtap="search">搜索</view>
+</view>
+</view>
+<view class="history" wx:if="{{result.length === 0}}">
+  <view class="header">
+    <view class="title">搜索历史</view>
+    <view class="empty iconfont icon-shanchu" bindtap="emptyHistoryRecords"></view>
+  </view>
+  <view class="list">
+    <view class="item" bindtap="selectHistory"  data-name="{{item}}" wx:for="{{history}}" >
+      <text>{{item}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="result" wx:else>
+  <view class="list">
+    <view class="item" bindtap="selectHistory" data-name="{{item.name}}" wx:for="{{result}}" >
+      <icon class="iconfont icon-sousuo"></icon>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>
+

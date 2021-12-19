@@ -1,0 +1,67 @@
+<view class="header">
+    <l-search-bar placeholder="输入员工姓名搜索" style="flex:1;"
+        bg-color="#f6f6f6" shape="circle" show-cancel="{{false}}" 
+        bind:linconfirm="handleInputConfirm"
+        bind:linclear="handleInputClear"
+        bind:linchange="handleInputChange"
+      />
+      <l-button type="default" size="mini" width="120" shape="semicircle" bind:lintap="handleInputConfirm">搜索</l-button>
+     
+</view>
+
+<view class="time">
+    <view class="total">
+        共计 {{total === null ? '-' : total}} 人
+    </view>
+    <view bindtap="showPopup">
+        筛选
+        <icon class="iconfont icon-shaixuan"></icon>
+    </view>
+   
+</view>
+
+
+<scroll-view scroll-y="{{true}}" class="employee-list" lower-threshold="100"
+scroll-y="{{true}}" bindscrolltolower="employeeListScrollTolower">
+    <dimission-employee-item wx:for="{{list}}" employee="{{item}}" />
+    <l-loadmore show="{{isEnd || isLoading}}" type="{{isEnd ? 'end' : 'loading'}}" end-text="我是有底线的" line="{{true}}"></l-loadmore>
+</scroll-view>
+
+
+<l-popup show="{{popupShow}}" content-align="bottom"  animation="hide"> 
+    <view class="sift-wrapper">
+        <view class="property">
+            <view class="title">
+                自定义时间范围
+            </view>
+            <view class="time-range">
+                <view class="time-range-item start">
+                    <picker mode="date" value="{{date}}"  data-type="start" bindchange="bindDatePick">
+                        <view class="picker">
+                            {{startTime || '开始时间'}}
+                        </view>
+                    </picker>
+                </view> 至
+                <view class="time-range-item end">
+                    <picker mode="date" value="{{date}}" data-type="end" bindchange="bindDatePick" start="{{startTime}}">
+                        <view class="picker">
+                            {{endTime || '结束时间'}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+        <view class="property">
+            <view class="title">时间段</view>
+            <view class="time-period">
+                <view class="time-period-item {{timePeriodActIndex === item.key ? 'active' : ''}}" 
+                    wx:for="{{timePeriod}}" data-key="{{item.key}}"
+                    bindtap="handleTimePeroidChange">
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+
+
+  </view>
+</l-popup>

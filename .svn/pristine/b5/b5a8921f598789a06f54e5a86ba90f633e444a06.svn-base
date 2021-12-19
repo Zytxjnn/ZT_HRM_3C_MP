@@ -1,0 +1,34 @@
+<view class="search">
+  <view class="search-content">
+    <view class="search-input-wrap" bindtap="intoSearchEmployee">
+      <icon class="iconfont icon-sousuo"></icon>
+      <input type="text" disabled placeholder="{{keyword ? keyword : '请输入员工姓名 | 部门 | 岗位搜索'}}" />
+    </view>
+  </view>
+  <view class="total">共计 <text class="count">{{total}}</text> 名员工</view>
+</view>
+
+<view class="employee-list" wx:if="{{list.length !== 0}}">
+  <view class="employee"  wx:for="{{list}}" data-id="{{item.id}}" bindtap="intoEmployeeDetail" >
+    <view class="image">
+      <image class="image" src="{{item.photoFilePath || '../../resouces/imgs/profile_photo_placeholder.png'}}" binderror="headImgLoadError" data-index="{{index}}"></image>
+    </view>
+    <view class="content">
+      <view class="name">
+        <text>{{item.name}} {{item.gender}}</text>
+        <text>{{item.age}} 岁</text>
+       </view>
+       <view class="first-education-name">学历：{{item.educationName || '不详'}}</view>
+      <view class="jobs-name">岗位：{{item.jobsName || '不详'}}</view>
+      <view class="archives-manager">从事工作：{{item.engagedInWorkName}}</view>
+      <view class="secondary-institutions-name">
+          <text>二级机构：{{item.secondaryInstitutionsName}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="nodata" wx:if="{{list.length === 0 && !isLoading}}">
+  暂无符合条件的员工
+</view>
+

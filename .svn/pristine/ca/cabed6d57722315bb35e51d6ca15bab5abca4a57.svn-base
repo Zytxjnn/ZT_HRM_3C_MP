@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "员工列表",
+  "onReachBottomDistance":200,
+    "usingComponents":{
+      "l-popup":"/miniprogram_npm/lin-ui/popup/index",
+      "l-form":"/miniprogram_npm/lin-ui/form/index",
+      "l-form-item":"/miniprogram_npm/lin-ui/form-item",
+      "l-input":"/miniprogram_npm/lin-ui/input",
+      "l-button":"/miniprogram_npm/lin-ui/button/index",
+      "l-search-bar":"/miniprogram_npm/lin-ui/search-bar/index",
+      "navigation": "/components/navbar/navbar"
+
+    },
+    "navigationStyle": "custom"
+}

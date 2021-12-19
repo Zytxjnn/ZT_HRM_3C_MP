@@ -1,0 +1,7 @@
+<view class="header">
+  <view class="username">
+    {{userInfo.userName}}
+  </view>
+</view>
+
+<view class="logout-btn" bindtap="logout">退出账号</view>

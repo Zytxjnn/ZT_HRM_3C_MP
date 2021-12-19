@@ -1,0 +1,13 @@
+<view class="employee" bindtap="dumpToEmployeeDetail">
+  <view class="image">
+    <image class="image" src="{{employee.photoFilePath || '../../resouces/imgs/profile_photo_placeholder.png'}}" binderror="headImgLoadError"></image>
+  </view>
+    <view class="content">
+      <view class="name">
+        <text>{{employee.name}}</text>
+        <text>{{employee.age}} 岁</text>
+       </view>
+       <view class="first-education-name">学历：{{employee.educationName || employee.firstEducationName || '不详'}}</view>
+      <view class="jobs-name">岗位：{{employee.jobsName || '不详'}}</view>
+    </view>
+  </view>
